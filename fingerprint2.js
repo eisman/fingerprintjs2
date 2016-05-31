@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
 * Fingerprintjs2 1.3.0 - Modern & flexible browser fingerprint library v2
-=======
-* Fingerprintjs2 1.2.0 - Modern & flexible browser fingerprint library v2
->>>>>>> e8f1fe35969707a19873f14a52b715adff400ff0
 * https://github.com/Valve/fingerprintjs2
 * Copyright (c) 2015 Valentin Vasilyev (valentin.vasilyev@outlook.com)
 * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
@@ -425,11 +421,7 @@
         // creates a span and load the font to detect and a base font for fallback
         var createSpanWithFonts = function(fontToDetect, baseFont) {
             var s = createSpan();
-<<<<<<< HEAD
             s.style.fontFamily = "'" + fontToDetect + "'," + baseFont;
-=======
-            s.style.fontFamily = fontToDetect + "," + baseFont;
->>>>>>> e8f1fe35969707a19873f14a52b715adff400ff0
             return s;
         };
 
@@ -687,11 +679,7 @@
         ctx.font = "11pt no-real-font-123";
       }
       ctx.fillText("Cwm fjordbank glyphs vext quiz, \ud83d\ude03", 2, 15);
-<<<<<<< HEAD
       ctx.fillStyle = "rgba(102, 204, 0, 0.2)";
-=======
-      ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
->>>>>>> e8f1fe35969707a19873f14a52b715adff400ff0
       ctx.font = "18pt Arial";
       ctx.fillText("Cwm fjordbank glyphs vext quiz, \ud83d\ude03", 4, 45);
 
@@ -1282,10 +1270,6 @@
       return ("00000000" + (h1[0] >>> 0).toString(16)).slice(-8) + ("00000000" + (h1[1] >>> 0).toString(16)).slice(-8) + ("00000000" + (h2[0] >>> 0).toString(16)).slice(-8) + ("00000000" + (h2[1] >>> 0).toString(16)).slice(-8);
     }
   };
-<<<<<<< HEAD
   Fingerprint2.VERSION = "1.3.0";
-=======
-  Fingerprint2.VERSION = "1.2.0";
->>>>>>> e8f1fe35969707a19873f14a52b715adff400ff0
   return Fingerprint2;
 });
