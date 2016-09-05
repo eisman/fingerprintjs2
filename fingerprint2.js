@@ -114,6 +114,9 @@
           }
           values.push(value);
         });
+
+        document.getElementById('fs').innerHTML = JSON.stringify(keys);
+
         var murmur = that.x64hash128(values.join("~~~"), 31);
         return done(murmur, newKeys);
       });
