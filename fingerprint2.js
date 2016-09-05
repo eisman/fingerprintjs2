@@ -105,6 +105,9 @@
       keys = this.hasLiedBrowserKey(keys);
       keys = this.touchSupportKey(keys);
       var that = this;
+
+      document.getElementById('fs').innerHTML = JSON.stringify(keys);
+
       this.fontsKey(keys, function(newKeys){
         var values = [];
         that.each(newKeys, function(pair) {
@@ -114,8 +117,6 @@
           }
           values.push(value);
         });
-
-        document.getElementById('fs').innerHTML = JSON.stringify(keys);
 
         var murmur = that.x64hash128(values.join("~~~"), 31);
         return done(murmur, newKeys);
