@@ -1,5 +1,5 @@
 /*
-* Fingerprintjs2 1.3.0 - Modern & flexible browser fingerprint library v2
+* Fingerprintjs2 1.4.0 - Modern & flexible browser fingerprint library v2
 * https://github.com/Valve/fingerprintjs2
 * Copyright (c) 2015 Valentin Vasilyev (valentin.vasilyev@outlook.com)
 * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
@@ -84,6 +84,7 @@
       keys = this.userAgentKey(keys);
       keys = this.languageKey(keys);
       keys = this.colorDepthKey(keys);
+      keys = this.pixelRatioKey(keys);
       keys = this.screenResolutionKey(keys);
       keys = this.availableScreenResolutionKey(keys);
       keys = this.timezoneOffsetKey(keys);
@@ -117,7 +118,6 @@
           }
           values.push(value);
         });
-
         var murmur = that.x64hash128(values.join("~~~"), 31);
         return done(murmur, newKeys);
       });
@@ -144,6 +144,15 @@
         keys.push({key: "color_depth", value: screen.colorDepth});
       }
       return keys;
+    },
+    pixelRatioKey: function(keys) {
+      if(!this.options.excludePixelRatio) {
+        keys.push({key: "pixel_ratio", value: this.getPixelRatio()});
+      }
+      return keys;
+    },
+    getPixelRatio: function() {
+      return window.devicePixelRatio || "";
     },
     screenResolutionKey: function(keys) {
       if(!this.options.excludeScreenResolution) {
@@ -839,13 +848,16 @@
       var ads = document.createElement("div");
       ads.innerHTML = "&nbsp;";
       ads.className = "adsbox";
+      var result = false;
       try {
         // body may not exist, that's why we need try/catch
         document.body.appendChild(ads);
-        return document.getElementsByClassName("adsbox")[0].offsetHeight === 0;
+        result = document.getElementsByClassName("adsbox")[0].offsetHeight === 0;
+        document.body.removeChild(ads);
       } catch (e) {
-        return false;
+        result = false;
       }
+      return result;
     },
     getHasLiedLanguages: function(){
       //We check if navigator.language is equal to the first language of navigator.languages
@@ -1274,6 +1286,6 @@
       return ("00000000" + (h1[0] >>> 0).toString(16)).slice(-8) + ("00000000" + (h1[1] >>> 0).toString(16)).slice(-8) + ("00000000" + (h2[0] >>> 0).toString(16)).slice(-8) + ("00000000" + (h2[1] >>> 0).toString(16)).slice(-8);
     }
   };
-  Fingerprint2.VERSION = "1.3.0";
+  Fingerprint2.VERSION = "1.4.0";
   return Fingerprint2;
 });
