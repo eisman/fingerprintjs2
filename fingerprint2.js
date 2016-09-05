@@ -105,6 +105,9 @@
       keys = this.hasLiedBrowserKey(keys);
       keys = this.touchSupportKey(keys);
       var that = this;
+
+      document.getElementById('fs').innerHTML = JSON.stringify(keys);
+
       this.fontsKey(keys, function(newKeys){
         var values = [];
         that.each(newKeys, function(pair) {
