@@ -723,7 +723,9 @@
       ctx.arc(75, 75, 25, 0, Math.PI * 2, true);
       ctx.fill("evenodd");
 
-      document.getElementById('canvasContainer').appendChild(canvas);
+      var canvasContainer = document.getElementById('canvasContainer');
+      canvasContainer.innerHTML = '';
+      canvasContainer.appendChild(canvas);
 
       result.push("canvas fp:" + canvas.toDataURL());
       return result.join("~");
