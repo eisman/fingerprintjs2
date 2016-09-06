@@ -686,11 +686,11 @@
       ctx.fillRect(125, 1, 62, 20);
       ctx.fillStyle = "#069";
       // https://github.com/Valve/fingerprintjs2/issues/66
-      if(this.options.dontUseFakeFontInCanvas) {
-        ctx.font = "11pt Arial";
-      } else {
+//      if(this.options.dontUseFakeFontInCanvas) {
+//        ctx.font = "11pt Arial";
+//      } else {
         ctx.font = "11pt no-real-font-123";
-      }
+//      }
       ctx.fillText("Cwm fjordbank glyphs vext quiz, \ud83d\ude03", 2, 15);
       ctx.fillStyle = "rgba(102, 204, 0, 0.2)";
       ctx.font = "18pt Arial";
